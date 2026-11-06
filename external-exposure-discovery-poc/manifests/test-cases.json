@@ -1,0 +1,48 @@
+[
+  {
+    "id": "POS-001",
+    "artifact": "test-corpus/synthetic-campaign-brief.md",
+    "expected": "potential_exposure_candidate",
+    "signals": [
+      "exact_domain",
+      "unique_campaign_marker"
+    ],
+    "notes": "Synthetic document intentionally includes a domain association and unique marker."
+  },
+  {
+    "id": "POS-002",
+    "artifact": "test-corpus/synthetic-participants.csv",
+    "expected": "potential_exposure_candidate",
+    "signals": [
+      "exact_domain",
+      "synthetic_person_records"
+    ],
+    "notes": "Fictional records only; evaluate structured participant-like data detection."
+  },
+  {
+    "id": "POS-003",
+    "artifact": "test-corpus/dummy-config.env.example",
+    "expected": "potential_exposure_candidate",
+    "signals": [
+      "exact_domain",
+      "dummy_secret_like_pattern"
+    ],
+    "notes": "Placeholder is deliberately nonfunctional and must not be treated as a live credential."
+  },
+  {
+    "id": "NEG-001",
+    "artifact": "test-corpus/negative-ordinary-mention.md",
+    "expected": "domain_mention_only",
+    "signals": [
+      "exact_domain"
+    ],
+    "notes": "Ordinary mention must not be promoted to a breach finding."
+  },
+  {
+    "id": "NEG-002",
+    "artifact": "test-corpus/negative-unrelated-content.md",
+    "expected": "no_finding",
+    "signals": [],
+    "notes": "No target domain or sensitive content."
+  }
+]
